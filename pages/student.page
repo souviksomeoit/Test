@@ -1,0 +1,20 @@
+<apex:page standardController="Student__c" recordSetVar="student">
+
+    <apex:form >
+        <apex:pageBlock >
+        <apex:commandButton action="{!URLFOR($Action.Student__c.New, '')}" id="editButton" value="New"/>
+            <apex:pageBlockTable value="{!student}" var="items">
+                <apex:column value="{!items.Name}"/>
+                <apex:column value="{!items.FirstName__c}"/>
+                <apex:column value="{!items.LastName__c}"/>
+                <apex:column >
+                    <apex:commandButton action="{!URLFOR($Action.Student__c.Edit, items.Id)}" id="editButton" value="Edit"/>
+                </apex:column>
+                <apex:column >
+                    <apex:commandButton action="{!URLFOR($Action.Student__c.Delete, items.Id)}" id="deleteButton" value="Delete"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>

@@ -1,0 +1,38 @@
+<apex:page showHeader="false">
+
+<body ng-app="contactManager">
+    <script src="{!URLFOR($Resource.angular)}"></script>
+
+    <!-- ContactManager module -->
+    <script src="{!URLFOR($Resource.app, 'app/app.js')}"></script>
+    <script src="{!URLFOR($Resource.app, 'app/contact/contact-entity.js')}"></script>
+    <!-- ContactList controller -->
+    <script src="{!URLFOR($Resource.app, 'app/contact/contact-list-controller.js')}"></script>
+    <!-- ContactNew controller -->
+    <script src="{!URLFOR($Resource.app, 'app/contact/contact-new-controller.js')}"></script>
+    <!-- ContactEdit controller -->
+    <script src="{!URLFOR($Resource.app, 'app/contact/contact-edit-controller.js')}"></script>
+    
+
+
+<!--
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"/><br/>
+Last Name: <input type="text" ng-model="lastName"/><br/>
+
+Full Name: {{firstName + " " + lastName}}
+
+<p ng-bind="firstName +' '+ lastName"></p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "Hello";
+    $scope.lastName= "World";
+});
+</script>
+-->
+</body>
+</apex:page>

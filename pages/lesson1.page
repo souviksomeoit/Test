@@ -1,0 +1,68 @@
+<apex:page sidebar="false" standardController="Account" >
+    <apex:stylesheet value="{!$Resource.bootstrap}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <apex:pageBlock mode="detail">
+      <div class="container">
+      <table>
+          <tr>
+              <td>
+              <image src="https://c.ap2.visual.force.com/resource/1439098033000/Photo" class="img-circle" width="304" height="236"/>
+              </td>
+              <td>
+              <center>
+                  <h1>Welcome {!$User.FirstName} {!$User.LastName}</h1>
+                     <br/>
+                  <h2>Name of your company is {!$User.CompanyName}</h2>
+                     <br/>
+                  <h3>Email ID is {!$User.Email}</h3>
+               </center>
+               </td>
+           </tr>
+       </table>
+       </div>
+       <br/>
+      </apex:pageBlock>
+      <apex:form >
+      
+      <apex:pageBlock >
+      
+          <apex:pageBlockTable value="{!Account.Contacts}" var="item">
+              
+                  <apex:column >
+                      <apex:commandLink reRender="contactDetail">
+                          <apex:param name="cid" value="{!item.id}"/>{! item.name}
+                      </apex:commandLink>
+                  </apex:column>
+                  <apex:column value="{! item.account.name}"/>
+                   <apex:column value="{! item.account.billingCity}"/>
+                   <apex:column value="{! item.title}"/>
+                   <apex:column value="{! item.owner.name}"/>
+          </apex:pageBlockTable>
+          
+      </apex:pageBlock>
+      <apex:pageBlock id="contactDetail">
+          <apex:detail subject="{!$CurrentPage.parameters.cid}"  relatedList="false"/>
+      </apex:pageBlock>
+      
+      </apex:form>
+      <!--
+      
+      <apex:pageBlock mode="maindetail">
+      <apex:form >
+    <apex:SelectList value="{!val}" size="1">
+      <apex:selectOptions value="{!Name}"></apex:selectOptions>
+    </apex:SelectList>
+  </apex:form>
+      <!--
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#">{}</a></li>
+              <li><a href="#">Menu 1</a></li>
+              <li><a href="#">Menu 2</a></li>
+              <li><a href="#">Menu 3</a></li>
+           </ul>
+      
+      </apex:pageBlock>
+      -->
+      
+</apex:page>
